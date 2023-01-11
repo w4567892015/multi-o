@@ -4,14 +4,16 @@ import { AccountAttributes } from '../PO/app.po';
 
 export class AccountOutput implements AccountAttributes {
   id: string;
+
   firstName: string;
+
   lastName: string;
 
-  @Exclude()
+  @Expose({ groups: ['admin'] })
   password: string;
 
-  @Expose()
-  get fullName(): string {
+  @Expose({ name: 'fullName' })
+  getFullName(): string {
     return this.firstName + ' ' + this.lastName;
   }
 }

@@ -17,7 +17,18 @@ export class AppService {
 
   async getOne(id: string): Promise<AccountOutput> {
     const data = await this.appRepository.findOne((i) => i.id === id);
-    const realData = plainToInstance(AccountOutput, data);
-    return instanceToPlain(realData) as AccountOutput;
+    const realData = plainToInstance(AccountOutput, data, {
+      groups: ['admin'],
+    });
+
+    const newData = instanceToPlain(realData, {
+      groups: ['admin'],
+    });
+
+    console.log('origin: %o', data);
+    console.log('deserialized object: %o', realData);
+    console.log('serialized object: %o', newData);
+
+    return newData as AccountOutput;
   }
 }
