@@ -2,27 +2,23 @@
 
 ## Description
 
-What is DTO, DO, PO ?
+What is DTO, BO, DAO, PO, VO ?
 
-DTO, DO, PO are design patterns and acronyms that are commonly used in software development. They are used to organize the codebase and separate the concerns of different layers of an application:
+DTO, BO, DAO, PO, VO are design patterns and acronyms that are commonly used in software development. They are used to organize the codebase and separate the concerns of different layers of an application:
 
-- <b>DTO (Data Transfer Object)</b>: This is an object that is used to pass data between different layers of an application. DTOs are used to represent the data that should be sent over the network or stored in a database. DTOs are often used to validate incoming data before it is processed by the application.
+- <b>DTO (Data Transfer Object)</b>:
 
-- <b>DO (Data Object)</b>: This is an object that represents data that is stored in a database. DOs are used to model the data that is stored in the database. They usually include fields that correspond to the columns in a database table.
+- <b>BO (Business Object)</b>:
 
-- <b>PO (Plain Old JavaScript Object)</b>: This is a simple JavaScript object that does not include any methods or behaviors. POJOs are often used to represent data in an application, and are easy to work with in JavaScript and TypeScript.
+- <b>DAO (Data Access Object)</b>:
+
+- <b>PO (Persistence Object)</b>:
+
+- <b>VO (Value Object)</b>:
 
 ## Definition
 
-Controller
-  - Input > DTO
-  - Output > DO
-
-Service
-  - Output > DO
-
-DataBase
-  - Output > PO
+![design](https://github.com/w4567892015/multi-o/blob/main/pic/design.png)
 
 ## Installation
 
