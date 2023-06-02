@@ -9,29 +9,25 @@ export class AppController {
   constructor(private readonly userService: UserService) {}
 
   @Get('/all')
-  async getAll(@Query('role') role: string): Promise<User[]> {
+  async findAll(@Query('role') role: string): Promise<User[]> {
     const options = { groups: [role] };
-    const realData = await this.userService.getAll();
+    const realData = await this.userService.findAll();
     const newData = realData.map((account) => new User(account));
 
     const results = instanceToPlain(newData, options);
-
-    console.log('serialized object: %o', newData, results);
     return results as User[];
   }
 
   @Get('/one/:id')
-  async getOne(
+  async findOne(
     @Param('id') id: string,
     @Query('role') role: string,
   ): Promise<User> {
     const options = { groups: [role] };
-    const realData = await this.userService.getOne(id);
+    const realData = await this.userService.findOne({ id });
     const newData = new User(realData);
 
     const results = instanceToPlain(newData, options);
-
-    console.log('serialized object: %o', newData, results);
     return results as User;
   }
 }

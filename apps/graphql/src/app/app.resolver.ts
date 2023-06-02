@@ -12,7 +12,7 @@ export class AppResolver {
   async all(@Args() args: GetUsersArgs): Promise<User[]> {
     const { role } = args;
     const options = { groups: [role] };
-    const realData = await this.userService.getAll();
+    const realData = await this.userService.findAll();
     const newData = realData.map((account) => new User(account));
 
     const results = instanceToPlain(newData, options);
@@ -25,7 +25,7 @@ export class AppResolver {
   async one(@Args() args: GetOneUserArgs): Promise<User> {
     const { id, role } = args;
     const options = { groups: [role] };
-    const realData = await this.userService.getOne(id);
+    const realData = await this.userService.findOne({ id });
     const newData = new User(realData);
 
     const results = instanceToPlain(newData, options);

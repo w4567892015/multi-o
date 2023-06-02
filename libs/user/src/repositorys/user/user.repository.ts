@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
-import { AccountAttributes } from './PO/app.po';
+import { FindById } from './user.bo';
+import { AccountAttributes } from './user.po';
 
 @Injectable()
 export class UserRepository {
@@ -28,7 +29,7 @@ export class UserRepository {
   async list(): Promise<AccountAttributes[]> {
     return this.accounts;
   }
-  async findOne(func): Promise<AccountAttributes> {
-    return this.accounts.find(func);
+  async findOne(id: string): Promise<AccountAttributes> {
+    return this.accounts.find((item) => item.id === id);
   }
 }

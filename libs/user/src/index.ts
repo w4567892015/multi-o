@@ -1,3 +1,3 @@
-export * from './DTO/app.dto';
+export * from './services/user/user.dto';
 export * from './user.module';
-export * from './user.service';
+export * from './services/user/user.service';
