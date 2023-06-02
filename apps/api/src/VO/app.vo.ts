@@ -2,7 +2,7 @@ import { Exclude, Expose } from 'class-transformer';
 
 import { AccountOutput } from '@libs/user';
 
-export class AccountOutputVO implements AccountOutput {
+export class User implements AccountOutput {
   id: string;
   firstName: string;
   lastName: string;
