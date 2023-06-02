@@ -18,7 +18,12 @@ DTO, BO, DAO, PO, VO are design patterns and acronyms that are commonly used in 
 
 ## Definition
 
-![design](https://github.com/w4567892015/multi-o/blob/main/pic/design.png)
+### Restful
+![design](https://github.com/w4567892015/multi-o/blob/main/pic/rest-design.png)
+
+
+### Graphql
+![design](https://github.com/w4567892015/multi-o/blob/main/pic/graphql-design.png)
 
 ## Installation
 
