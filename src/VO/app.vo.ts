@@ -15,7 +15,7 @@ export class AccountOutputVO implements AccountOutput {
     return `${this.firstName} ${this.lastName}`;
   }
 
-  constructor(partial: Partial<AccountOutput[]>) {
+  constructor(partial: Partial<AccountOutput>) {
     Object.assign(this, partial);
   }
 }

@@ -1,5 +1,5 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
-import { plainToInstance, instanceToPlain } from 'class-transformer';
+import { instanceToPlain } from 'class-transformer';
 
 import { AppService } from './app.service';
 
@@ -14,10 +14,7 @@ export class AppController {
   async getAll(@Query('role') role: string): Promise<AccountOutputVO[]> {
     const options = { groups: [role] };
     const realData = await this.appService.getAll();
-
-    const newData = realData.map((account) =>
-      plainToInstance(AccountOutputVO, account, options),
-    );
+    const newData = realData.map((account) => new AccountOutputVO(account));
 
     const results = instanceToPlain(newData, options);
 
@@ -32,8 +29,7 @@ export class AppController {
   ): Promise<AccountOutputVO> {
     const options = { groups: [role] };
     const realData = await this.appService.getOne(id);
-
-    const newData = plainToInstance(AccountOutputVO, realData, options);
+    const newData = new AccountOutputVO(realData);
 
     const results = instanceToPlain(newData, options);
 
