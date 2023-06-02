@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 
 import { AppResolver } from './app.resolver';
-import { AppService } from './app.service';
-import { AppRepository } from './app.repository';
+import { UserModule } from '@libs/user';
 
 @Module({
-  providers: [AppResolver, AppService, AppRepository],
+  imports: [UserModule],
+  providers: [AppResolver],
 })
 export class AppModule {}

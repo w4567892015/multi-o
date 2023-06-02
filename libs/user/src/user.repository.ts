@@ -2,20 +2,28 @@ import { Injectable } from '@nestjs/common';
 
 import { AccountAttributes } from './PO/app.po';
 
-import path from 'path';
-import csv from 'csvtojson';
-
-const dataDir = path.join(__dirname, 'data');
-
 @Injectable()
-export class AppRepository {
+export class UserRepository {
   private accounts: AccountAttributes[];
 
   constructor() {
     this.loadData();
   }
   private async loadData(): Promise<void> {
-    this.accounts = await csv().fromFile(path.join(dataDir, 'test.csv'));
+    this.accounts = [
+      {
+        id: '1',
+        firstName: 'John',
+        lastName: 'Doe',
+        password: '123456',
+      },
+      {
+        id: '2',
+        firstName: 'ken',
+        lastName: 'Doe',
+        password: '1234567',
+      },
+    ];
   }
   async list(): Promise<AccountAttributes[]> {
     return this.accounts;

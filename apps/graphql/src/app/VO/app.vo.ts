@@ -1,6 +1,6 @@
 import { Exclude, Expose } from 'class-transformer';
 
-import { AccountOutput } from '../DTO/app.dto';
+import { AccountOutput } from '@libs/user';
 
 export class AccountOutputVO implements AccountOutput {
   id: string;
